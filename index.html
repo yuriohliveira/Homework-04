@@ -1,24 +1,200 @@
+<!-- meta data -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz!</title>
+    <title>CrAzY qUiZzZz</title>
+    <!-- * bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!--* ma css -->
     <link rel="stylesheet" href="style.css">
-
+    <!--* ugly font  -->
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Source+Code+Pro:wght@500&display=swap"
+        rel="stylesheet">
 </head>
 
-
 <body>
-        <div id="start"></div>
-        <h3 id="timer"></h3>
-        <div id="quiz"></div>
-        <div id="results"></div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="script.js"></script>
+    
+    <br>
+    <div id="scoreboarDiv">
+        <p><a href="#" id="scoreboardLink">Scoreboard</a></p>
+    </div>
+    <div id="timer-div">
+        <p id="timerP">Timer: <span id="timer">0</span></p>
+    </div>
 
-    </body>
+    <div class="container rounded">
+
+        <div class="row">
+            <section id="scoreboard" class="hidden" class="col-sm-12">
+                <h1 style="text-align: center;">Scoreboard</h1>
+                <table id="scoreboardTable" class="table">
+                    <thead>
+                        <th>Rank</th>
+                        <th>Player</th>
+                        <th>Points</th>
+                    </thead>
+                    <tbody id="table-body">
+                    </tbody>
+                </table>
+                <button type="button" class="buttons" id="tryAgain">Try Again!</button>
+                <button type="button" class="buttons" id="clear-scores">Clear Data</button>
+            </section>
+        </div>
+
+        <!-- welcome -->
+        <div class="row">
+            <section id="welcomeContent" data-current="current" class="col-sm-12">
+                <h1>Welcome!</h1>
+                <h2>This is the useless weird knowledge quiz!</h2>
+                <p>You have 60 seconds to answer all questions. Each wrong answer gives you -8 seconds and 0 points,
+                    each right answer gives you 1 point! Good luck!
+                </p>
+                <button id="startQuizButton" type="button" class="buttons">Begin</button>
+            </section>
+        </div>
+
+        <!-- first question -->
+        <div class="row">
+            <section id="question1" class="hidden" class="col-sm-12">
+                <h3>1. Which of these artists is known for the making of 'Joe's Garage'?</h3>
+                <ul>
+                    <li><button type="button" class="answer-buttons">David Bowie</button></li>
+                    <li><button type="button" class="answer-buttons">Pink Floyd</button></li>
+                    <li><button type="button" class="answer-buttons correct">Frank Zappa</button></li>
+                    <li><button type="button" class="answer-buttons">Jimi Hendrix</button></li>
+                </ul>
+            </section>
+        </div>
+        <!-- second question -->
+        <div class="row">
+            <section id="question2" class="hidden" class="col-sm-12">
+                <h3>2. Which of these artists is known for the making of 'Moving Pictures'?</h3>
+                <ul>
+                    <li><button type="button" class="answer-buttons correct">Rush</button></li>
+                    <li><button type="button" class="answer-buttons">Grateful Dead</button></li>
+                    <li><button type="button" class="answer-buttons">Yes</button></li>
+                    <li><button type="button" class="answer-buttons">Jethro Tull</button></li>
+                </ul>
+            </section>
+        </div>
+        <!-- third question -->
+        <div class="row">
+            <section id="question3" class="hidden" class="col-sm-12">
+                <h3>3. Which of these artists is known for the making of 'Animals'?</h3>
+                <ul>
+                    <li><button type="button" class="answer-buttons">The Beatles</button></li>
+                    <li><button type="button" class="answer-buttons correct">Pink Floyd</button></li>
+                    <li><button type="button" class="answer-buttons">Stevie Wonder</button></li>
+                    <li><button type="button" class="answer-buttons">Santana</button></li>
+                </ul>
+            </section>
+        </div>
+        <!-- fourth question -->
+        <div class="row">
+            <section id="question4" class="hidden" class="col-sm-12">
+                <h3>4. Which of these artists is known for the making of 'L.A. Woman'?</h3>
+                <ul>
+                    <li><button type="button" class="answer-buttons">Frank Sinatra</button></li>
+                    <li><button type="button" class="answer-buttons correct">The Doors</button></li>
+                    <li><button type="button" class="answer-buttons">Chuck Berry</button></li>
+                    <li><button type="button" class="answer-buttons">Tupac</button></li>
+                </ul>
+            </section>
+        </div>
+        <!-- fith question -->
+        <div class="row">
+            <section id="question5" class="hidden" class="col-sm-12">
+                <h3>5. Which of these artists is known for the making of 'Exile on Main Street'?</h3>
+                <ul>
+                    <li><button type="button" class="answer-buttons">The Kinks</button></li>
+                    <li><button type="button" class="answer-buttons">Creedence Clearwater Revival</button></li>
+                    <li><button type="button" class="answer-buttons correct">Rolling Stones</button></li>
+                    <li><button type="button" class="answer-buttons">Eric Clapton</button></li>
+                </ul>
+            </section>
+        </div>
+        <!-- 6 -->
+        <div class="row">
+            <section id="question6" class="hidden" class="col-sm-12">
+                <h3>6. Which of these artists is known for the making of 'Jar of Flies'?</h3>
+                <ul>
+                    <li><button type="button" class="answer-buttons">Nirvana</button></li>
+                    <li><button type="button" class="answer-buttons">Pearl Jam</button></li>
+                    <li><button type="button" class="answer-buttons correct">Alice in Chains</button></li>
+                    <li><button type="button" class="answer-buttons">Soundgarden</button></li>
+                </ul>
+            </section>
+        </div>
+        <!-- 7 -->
+        <div class="row">
+            <section id="question7" class="hidden" class="col-sm-12">
+                <h3>7. Which of these artists is known for the making of 'Core'?</h3>
+                <ul>
+                    <li><button type="button" class="answer-buttons">Nirvana</button></li>
+                    <li><button type="button" class="answer-buttons">Soundgarden</button></li>
+                    <li><button type="button" class="answer-buttons">Neil Young</button></li>
+                    <li><button type="button" class="answer-buttons correct">Stone Temple Pilots</button></li>
+                </ul>
+            </section>
+        </div>
+        <!-- 8 -->
+        <div class="row">
+            <section id="question8" class="hidden" class="col-sm-12">
+                <h3>8. Which of these artists is known for the making of 'Angel Dust'?</h3>
+                <ul>
+                    <li><button type="button" class="answer-buttons">James Brown</button></li>
+                    <li><button type="button" class="answer-buttons correct">Faith No More</button></li>
+                    <li><button type="button" class="answer-buttons">Alice in Chains</button></li>
+                    <li><button type="button" class="answer-buttons">Soundgarden</button></li>
+                </ul>
+            </section>
+        </div>
+        <!-- 9  -->
+        <div class="row">
+            <section id="question9" class="hidden" class="col-sm-12">
+                <h3>9. Which of these artists is known for the making of 'Staion to Staion'?</h3>
+                <ul>
+                    <li><button type="button" class="answer-buttons correct">David Bowie</button></li>
+                    <li><button type="button" class="answer-buttons">Lou Reed</button></li>
+                    <li><button type="button" class="answer-buttons">Joy Division</button></li>
+                    <li><button type="button" class="answer-buttons">The Smiths</button></li>
+                </ul>
+            </section>
+        </div>
+        <!-- 10 -->
+        <div class="row">
+            <section id="question10" class="hidden" class="col-sm-12">
+                <h3>10. Which of these artists is known for the making of 'Thick as a Brick'?</h3>
+                <ul>
+                    <li><button type="button" class="answer-buttons">Camel</button></li>
+                    <li><button type="button" class="answer-buttons correct">Jethro Tull</button></li>
+                    <li><button type="button" class="answer-buttons">Renaissance</button></li>
+                    <li><button type="button" class="answer-buttons">Emerson, Lake & Palmer</button></li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- complete section -->
+        <div class="row">
+            <section id="quiz-complete" class="hidden" class="col-sm-12">
+                <h1>Quiz Complete</h1>
+                <form id="score-form">
+                    <label for="submit-text">Enter your name to log your score:</label>
+                    <input type="text" placeholder="Name" name="submit-text" id="submit-text" />
+                    <button type="button" id="submit-scores" class="buttons">Submit</button>
+                </form>
+            </section>
+        </div>
+
+    </div>
+
+    
+    <!-- * ma JS -->
+    <script src="script.js"></script>
+</body>
+
 </html>
