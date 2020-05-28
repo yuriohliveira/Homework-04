@@ -1,6 +1,6 @@
 ## Quiz game with timer
 
-This app is a multiple choice quiz. Clicking on 'start' triggers a 60 seconds timer. If you choose a wrong answer, you get -8 seconds complete it. The maximum score is 10 points and you can save to local storage.
+This app is a multiple choice quiz. Clicking on 'start' triggers a 50 seconds timer. If you choose a wrong answer, you get -4 seconds to complete it. The maximum score is 1000 points, divided between correct answers and time left.
 
 #### Installation
 To use this app you can click : [here](https://yuriohliveira.github.io/Homework-04/)
@@ -10,8 +10,3 @@ In order to use this application you can open the link, then answer the question
 
 #### Contact
 Email: yuriohliveira@gmail.com
-
-#### Possible improvements
-    - better points calculation (could include total time left)
-
-

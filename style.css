@@ -1,102 +1,45 @@
 body {
-    background: black;
-    color: white;
-    font-family: 'Josefin Sans', sans-serif;
+    background: darkred;
 }
 
-section {
-    width: 50%; 
-    padding-top: 20px;  
-    margin: auto;
+#welcomeCard {
+    text-align: center;
 }
 
-ul {
-    list-style-type: none;
+#questionsCard, #resultsCard, #scoreboardCard {
+    display: none;
+}
+
+th {
+    width: 33%;
 }
 
 table {
-	font-family: verdana,arial,sans-serif;
-	color:#333333;
-	font-size:14px;
-	border-width: 2px;
-	border-color:grey;
-    border-collapse: collapse;
-    margin-bottom: 8px; 
+    width: 100%;
+    text-align: center;
 }
 
-table th {
-	border-width: 2px;
-	padding: 5px 20px 5px 20px;
-	border-style: solid;
-	border-color: grey;
-	background-color: #dedede;
+.par {
+    background-color: rgb(233, 208, 178);
 }
 
-table td {
-	border-width: 2px;
-	padding: 5px 20px 5px 20px;
-	border-style: solid;
-	border-color: grey;
-    background-color: #ffffff;
-
+.impar {
+    background: rgb(182, 168, 168);
 }
 
-.hidden {
-    display: none; 
-} 
-.btn {
-    background-color: #708D81; 
-    border: none;
-    width: 100%; 
-    margin-bottom: 10px;
+#resultsCard {
+    text-align: center;
 }
 
-.buttons {
-    border-radius: 25px;
-    background: yellow;
-    border-color: black;
-    color: black;
-    padding: 8px;
+#firstPlayer {
+    font-size: 40px;
+    font: bold;
 }
 
-.answer-buttons {
-    border-radius: 10px;
-    background: yellow;
-    border-color: black;
+#secondPlayer {
+    font-size: 30px;
 }
 
-#submit-scores, #start-over, #clear-scores {
-    width: 35%; 
-    margin-bottom: 10px; 
-}
-
-#welcomeContent {
-    text-align: center; 
-}
-
-#scoreboardDiv {
-    position: absolute; 
-    top: 0%; 
-    left: 0%; 
-    margin-left: 10px; 
-    margin-top: 20px;
-}
-
-#timer-div {
-    position: absolute; 
-    top: 0%; 
-    right: 0%; 
-    margin-right: 10px; 
-    margin-top: 20px;
-}
-
-#scoreboardLink{
-    margin-left: 10px;
-}
-
-#scoreboardLink, #timerP {
-    background: yellow;
-    color: black;
-    padding: 3px;
-    border-radius: 10px;
+#thirdPlayer {
+    font-size: 20px;
 }
