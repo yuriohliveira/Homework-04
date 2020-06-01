@@ -17,48 +17,51 @@ var table = document.getElementById("#table");
 var userName = document.getElementById("userName");
 
 var qC = 0;
-var aC = 0;
+var qCtext;
+
+var randomQnumber = 0;
 
 var answerPoints = 0;
 var totalPoints;
 
 var ranking = [];
+var randomQarray = [];
 
 
-var questions = ["1. Which of these artists is known for the making of 'Joe's Garage'?",
-    "2. Which of these artists is known for the making of 'Moving Pictures'?",
-    "3. Which of these artists is known for the making of 'Animals'?",
-    "4. Which of these artists is known for the making of 'L.A. Woman'?",
-    "5. Which of these artists is known for the making of 'Exile on Main Street'?",
-    "6. Which of these artists is known for the making of 'Jar of Flies'?",
-    "7. Which of these artists is known for the making of 'Core'?",
-    "8. Which of these artists is known for the making of 'Angel Dust'?",
-    "9. Which of these artists is known for the making of 'Young Americans'?",
-    "10. Which of these artists is known for the making of 'Thick as a Brick'?"
+var questions = [   "Which of these artists is known for the making of 'Joe's Garage'?",
+                    "Which of these artists is known for the making of 'Moving Pictures'?",
+                    "Which of these artists is known for the making of 'Animals'?",
+                    "Which of these artists is known for the making of 'L.A. Woman'?",
+                    "Which of these artists is known for the making of 'Exile on Main Street'?",
+                    "Which of these artists is known for the making of 'Jar of Flies'?",
+                    "Which of these artists is known for the making of 'Core'?",
+                    "Which of these artists is known for the making of 'Angel Dust'?",
+                    "Which of these artists is known for the making of 'Young Americans'?",
+                    "Which of these artists is known for the making of 'Thick as a Brick'?"
 ];
 
-var answers = ["David Bowie", "Frank Zappa", "Pink Floyd", "Jimi Hendrix",
-    "Rush", "Grateful Dead", "Yes", "Jethro Tull",
-    "The Beatles", "Pink Floyd", "Stevie Wonder", "Santana",
-    "Frank Sinatra", "The Doors", "Chuck Berry", "Tupac",
-    "The Kinks", "Creedence Clearwater Revival", "The Rolling Stones", "Eric Clapton",
-    "Nirvana", "Pearl Jam", "Alice in Chains", "Soundgarden",
-    "Soundgarden", "Nirvana", "Neil Young", "Stone Temple Pilots",
-    "James Brown", "Faith No More", "Alice in Chains", "Soundgarden",
-    "David Bowie", "Lou Reed", "Joy Division", "The Smiths",
-    "Camel", "Jethro Tull", "Renaissance", "Emerson, Lake & Palmer"
+var answers = [     "David Bowie", "Frank Zappa", "Pink Floyd", "Jimi Hendrix",
+                    "Rush", "Grateful Dead", "Yes", "Jethro Tull",
+                    "The Beatles", "Pink Floyd", "Stevie Wonder", "Santana",
+                    "Frank Sinatra", "The Doors", "Chuck Berry", "Tupac",
+                    "The Kinks", "Creedence Clearwater Revival", "The Rolling Stones", "Eric Clapton",
+                    "Nirvana", "Pearl Jam", "Alice in Chains", "Soundgarden",
+                    "Soundgarden", "Nirvana", "Neil Young", "Stone Temple Pilots",
+                    "James Brown", "Faith No More", "Alice in Chains", "Soundgarden",
+                    "David Bowie", "Lou Reed", "Joy Division", "The Smiths",
+                    "Camel", "Jethro Tull", "Renaissance", "Emerson, Lake & Palmer"
 ];
 
-var correctAnswers = ["Frank Zappa",
-    "Rush",
-    "Pink Floyd",
-    "The Doors",
-    "The Rolling Stones",
-    "Alice in Chains",
-    "Stone Temple Pilots",
-    "Faith No More",
-    "David Bowie",
-    "Jethro Tull"
+var correctAnswers = [  "Frank Zappa",
+                        "Rush",
+                        "Pink Floyd",
+                        "The Doors",
+                        "The Rolling Stones",
+                        "Alice in Chains",
+                        "Stone Temple Pilots",
+                        "Faith No More",
+                        "David Bowie",
+                        "Jethro Tull"
 ];
 
 
@@ -68,7 +71,7 @@ document.getElementById("startQuizBtn").addEventListener("click", function (even
     document.getElementById("welcomeCard").style.display = "none";
     document.getElementById("questionsCard").style.display = "block";
     timeLeft = 50;
-    // questionText.textContent = questions[qC]
+
     renderStuff();
     startQuiz();
 })
@@ -78,7 +81,7 @@ answer1Btn.addEventListener("click", function (event) {
 
     event.preventDefault();
 
-    if (answer1Btn.textContent === correctAnswers[qC]) {
+    if (answer1Btn.textContent === correctAnswers[randomQnumber]) {
         answerPoints = answerPoints + 2;
         answerStatus.textContent = "Correct!"
         answerStatus.style.color = "green";
@@ -108,7 +111,7 @@ answer2Btn.addEventListener("click", function (event) {
 
     event.preventDefault();
 
-    if (answer2Btn.textContent === correctAnswers[qC]) {
+    if (answer2Btn.textContent === correctAnswers[randomQnumber]) {
         answerPoints = answerPoints + 2;
         answerStatus.textContent = "Correct!"
         answerStatus.style.color = "green";
@@ -138,7 +141,7 @@ answer3Btn.addEventListener("click", function (event) {
 
     event.preventDefault();
 
-    if (answer3Btn.textContent === correctAnswers[qC]) {
+    if (answer3Btn.textContent === correctAnswers[randomQnumber]) {
         answerPoints = answerPoints + 2;
         answerStatus.textContent = "Correct!"
         answerStatus.style.color = "green";
@@ -168,7 +171,7 @@ answer4Btn.addEventListener("click", function (event) {
 
     event.preventDefault();
 
-    if (answer4Btn.textContent === correctAnswers[qC]) {
+    if (answer4Btn.textContent === correctAnswers[randomQnumber]) {
         answerPoints = answerPoints + 2;
         answerStatus.textContent = "Correct!"
         answerStatus.style.color = "green";
@@ -234,7 +237,8 @@ document.getElementById("submitResultsBtn").addEventListener("click", function (
     localStorage.setItem("scores", JSON.stringify(ranking));
 
     // location.reload();
-    $("#table").empty();
+    
+    $("#table").empty();    
     renderScore();
 })
 
@@ -242,36 +246,68 @@ document.getElementById("submitResultsBtn").addEventListener("click", function (
 function startQuiz() {
 
     var timerInterval = setInterval(function () {
-        timeLeft--; //decrement time 
+        timeLeft--; 
         document.getElementById("timer").style.display = "block";
-        timer.textContent = timeLeft; //display time left  
+        timer.textContent = timeLeft; 
 
-        //when time runs out 
         if (timeLeft === 0) {
-            clearInterval(timerInterval); //stop timer 
+            clearInterval(timerInterval);
 
-            //hide current section
             document.getElementById("welcomeCard").style.display = "none";
             document.getElementById("questionsCard").style.display = "none";
             document.getElementById("resultsCard").style.display = "block";
 
         }
-    }, 1000); //interval is 1 second long 
+    }, 1000);
 
 }
 
 function renderStuff() {
 
-    questionText.textContent = questions[qC];
 
-    answer1Btn.textContent = answers[aC];
-    aC++;
-    answer2Btn.textContent = answers[aC];
-    aC++;
-    answer3Btn.textContent = answers[aC];
-    aC++;
-    answer4Btn.textContent = answers[aC];
-    aC++;
+    for (let i = 0; i < 1; i++) {
+        
+        randomQnumber = Math.floor(Math.random() * 10);
+
+        if(randomQarray.includes(randomQnumber)){
+            i--;
+        } else {
+            randomQarray.push(randomQnumber);
+            qCtext = qC+1;
+            questionText.textContent = qCtext + ". " + questions[randomQnumber];
+        }
+    }
+
+    var randomArray = [];
+
+    var random1, random2, random3, random4;
+
+    for (let i = 0; i < 4; i++) {
+        var randomN = Math.floor(Math.random() * 4);
+
+        if(randomArray.includes(randomN) && randomArray.length === 4) {
+            i++;
+        } else if (randomArray.includes(randomN)) {
+            i--;
+        } else {
+            randomArray.push(randomN);
+        }
+    }
+
+    var aC = randomQnumber*4;
+
+    random1 = aC + randomArray[0];
+    answer1Btn.textContent = answers[random1];
+
+    random2 = aC + randomArray[1];
+    answer2Btn.textContent = answers[random2];
+    
+    random3 = aC + randomArray[2];
+    answer3Btn.textContent = answers[random3];
+    
+    random4 = aC + randomArray[3];
+    answer4Btn.textContent = answers[random4];
+
 }
 
 function renderScore() {
