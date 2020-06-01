@@ -219,7 +219,8 @@ document.getElementById("submitResultsBtn").addEventListener("click", function (
 
     event.preventDefault();
 
-    ranking = JSON.parse(localStorage.getItem("scores"));
+    if(totalPoints > 0) {
+        ranking = JSON.parse(localStorage.getItem("scores"));
 
     if(ranking === null) {
         ranking = [];
@@ -236,8 +237,14 @@ document.getElementById("submitResultsBtn").addEventListener("click", function (
     }
     localStorage.setItem("scores", JSON.stringify(ranking));
 
+    } else {
+        alert("You didn't make any points you looser")
+    }
+
+    totalPoints = 0;
+
     // location.reload();
-    
+
     $("#table").empty();    
     renderScore();
 })
