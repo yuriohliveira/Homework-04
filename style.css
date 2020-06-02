@@ -1,13 +1,20 @@
 body {
-    background: darkred;
+    background: black;
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 #welcomeCard {
     text-align: center;
 }
 
-#questionsCard, #resultsCard, #scoreboardCard {
+#cardBody, #questionsCard, #resultsCard, #scoreboardCard {
     display: none;
+}
+
+#welcomeButton {
+    padding-top: 16px;
+    border-radius: 35px;
 }
 
 th {
@@ -20,11 +27,12 @@ table {
 }
 
 .par {
-    background-color: rgb(233, 208, 178);
+    background-color: azure;
+    color: black;
 }
 
 .impar {
-    background: rgb(182, 168, 168);
+    background: grey
 }
 
 #resultsCard {
@@ -32,14 +40,43 @@ table {
 }
 
 #firstPlayer {
-    font-size: 40px;
+    font-size: 50px;
     font: bold;
 }
 
 #secondPlayer {
-    font-size: 30px;
+    font-size: 38px;
 }
 
 #thirdPlayer {
-    font-size: 20px;
+    font-size: 25px;
+}
+
+.card {
+    background: transparent;
+}
+
+.btn {
+    background: yellow;
+    color: black;
+    border-color: black;
+}
+
+.btn:hover {
+    background: purple;
+    border-color: purple;
+    color: white;
+}
+
+
+.btn:active {
+    background: purple;
+    border-color: purple;
+}
+
+.answer {
+    width: 100%;
+    align-content: center;
+    text-align: center;
+    font-size: larger;
 }

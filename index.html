@@ -10,8 +10,7 @@
     <!--* ma css -->
     <link rel="stylesheet" href="style.css">
     <!--* ugly font  -->
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Source+Code+Pro:wght@500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap" rel="stylesheet">
 </head>
 
 
@@ -20,19 +19,20 @@
 
     <div class="container">
 
-        <br><br>
+        <br><br><br>
+
 
         <!-- ? welcome card -->
         <div class="card" id="welcomeCard">
             <div class="card-header">
-                <h2>Welcome!</h2>
+                <a href="#" class="btn" id="welcomeButton"><h1>Welcome!</h1></a>
             </div>
-            <div class="card-body">
-                <h5 class="card-title">This is the useless weird knowledge quiz!</h5>
-                <p class="card-text">You have 50 seconds to answer all questions. From a total of 1000 points divided
+            <div class="card-body" id="cardBody">
+                <h3 class="card-title">This is the the ultimate IQ quiz</h3>
+                <h4 class="card-text">You have 50 seconds to answer all questions. From a total of 1000 points divided
                     between
-                    time left and correct answers, each wrong answer gives you -4 seconds. Good luck!</p>
-                <a href="#" class="btn btn-primary" id="startQuizBtn">Start!</a>
+                    time left and correct answers, each wrong answer gives you -4 seconds. Good luck!</h4>
+                <a href="#" class="btn" id="startQuizBtn">Start!</a>
             </div>
         </div>
 
@@ -43,19 +43,19 @@
                 <h3 id="questionText">Question title</h3>
             </div>
             <div class="card-body">
-                <p><a href="#" class="btn btn-primary" id="answer1Btn">Answer 1</a></p>
-                <p><a href="#" class="btn btn-primary" id="answer2Btn">Answer 2</a></p>
-                <p><a href="#" class="btn btn-primary" id="answer3Btn">Answer 3</a></p>
-                <p><a href="#" class="btn btn-primary" id="answer4Btn">Answer 4</a></p>
+                <p><a href="#" class="btn answer" id="answer1Btn">Answer 1</a></p>
+                <p><a href="#" class="btn answer" id="answer2Btn">Answer 2</a></p>
+                <p><a href="#" class="btn answer" id="answer3Btn">Answer 3</a></p>
+                <p><a href="#" class="btn answer" id="answer4Btn">Answer 4</a></p>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-4">
                         </div>
                         <div class="col-4">
-                            <h4 id="answerStatus" style="text-align: center;"></h4>
+                            <h2 id="answerStatus" style="text-align: center;"></h2>
                         </div>
                         <div class="col-4">
-                            <h4 id="timer" style="text-align: right;">50</h4>
+                            <h2 id="timer" style="text-align: right;">50</h2>
                         </div>
                     </div>
                 </div>
@@ -99,14 +99,14 @@
                                     <label for="userName">Enter your name</label>
                                     <input type="name" class="form-control" id="userName" placeholder="Your name">
                                 </div>
-                                <button type="submit" id="submitResultsBtn" class="btn btn-primary">Save</button>
+                                <button type="submit" id="submitResultsBtn" class="btn">Save</button>
                             </form>
                         </div>
                         <div class="col-2"></div>
                     </div>
                     <br>
-                    <a href="#" class="btn btn-primary" id="tryAgainBtn">Try Again</a>
-                    <a href="#" class="btn btn-primary" id="clear">Clear Scoreboard</a>
+                    <a href="#" class="btn" id="tryAgainBtn">Try Again</a>
+                    <a href="#" class="btn" id="clear">Clear Scoreboard</a>
                 </div>
             </div>
 

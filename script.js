@@ -28,42 +28,58 @@ var ranking = [];
 var randomQarray = [];
 
 
-var questions = [   "Which of these artists is known for the making of 'Joe's Garage'?",
-                    "Which of these artists is known for the making of 'Moving Pictures'?",
-                    "Which of these artists is known for the making of 'Animals'?",
-                    "Which of these artists is known for the making of 'L.A. Woman'?",
-                    "Which of these artists is known for the making of 'Exile on Main Street'?",
-                    "Which of these artists is known for the making of 'Jar of Flies'?",
-                    "Which of these artists is known for the making of 'Core'?",
-                    "Which of these artists is known for the making of 'Angel Dust'?",
-                    "Which of these artists is known for the making of 'Young Americans'?",
-                    "Which of these artists is known for the making of 'Thick as a Brick'?"
+
+
+var questions = ["Which of these artists is known for the making of 'Joe's Garage'?",
+    "Which of these artists is known for the making of 'Moving Pictures'?",
+    "Which of these artists is known for the making of 'Animals'?",
+    "Which of these artists is known for the making of 'L.A. Woman'?",
+    "Which of these artists is known for the making of 'Exile on Main Street'?",
+    "Which of these artists is known for the making of 'Jar of Flies'?",
+    "Which of these artists is known for the making of 'Core'?",
+    "Which of these artists is known for the making of 'Angel Dust'?",
+    "Which of these artists is known for the making of 'Young Americans'?",
+    "Which of these artists is known for the making of 'Thick as a Brick'?"
 ];
 
-var answers = [     "David Bowie", "Frank Zappa", "Pink Floyd", "Jimi Hendrix",
-                    "Rush", "Grateful Dead", "Yes", "Jethro Tull",
-                    "The Beatles", "Pink Floyd", "Stevie Wonder", "Santana",
-                    "Frank Sinatra", "The Doors", "Chuck Berry", "Tupac",
-                    "The Kinks", "Creedence Clearwater Revival", "The Rolling Stones", "Eric Clapton",
-                    "Nirvana", "Pearl Jam", "Alice in Chains", "Soundgarden",
-                    "Soundgarden", "Nirvana", "Neil Young", "Stone Temple Pilots",
-                    "James Brown", "Faith No More", "Alice in Chains", "Soundgarden",
-                    "David Bowie", "Lou Reed", "Joy Division", "The Smiths",
-                    "Camel", "Jethro Tull", "Renaissance", "Emerson, Lake & Palmer"
+var answers = ["David Bowie", "Frank Zappa", "Pink Floyd", "Jimi Hendrix",
+    "Rush", "Grateful Dead", "Yes", "Jethro Tull",
+    "The Beatles", "Pink Floyd", "Stevie Wonder", "Santana",
+    "Frank Sinatra", "The Doors", "Chuck Berry", "Tupac",
+    "The Kinks", "Creedence Clearwater Revival", "The Rolling Stones", "Eric Clapton",
+    "Nirvana", "Pearl Jam", "Alice in Chains", "Soundgarden",
+    "Soundgarden", "Nirvana", "Neil Young", "Stone Temple Pilots",
+    "James Brown", "Faith No More", "Alice in Chains", "Soundgarden",
+    "David Bowie", "Lou Reed", "Joy Division", "The Smiths",
+    "Camel", "Jethro Tull", "Renaissance", "Emerson, Lake & Palmer"
 ];
 
-var correctAnswers = [  "Frank Zappa",
-                        "Rush",
-                        "Pink Floyd",
-                        "The Doors",
-                        "The Rolling Stones",
-                        "Alice in Chains",
-                        "Stone Temple Pilots",
-                        "Faith No More",
-                        "David Bowie",
-                        "Jethro Tull"
+var correctAnswers = ["Frank Zappa",
+    "Rush",
+    "Pink Floyd",
+    "The Doors",
+    "The Rolling Stones",
+    "Alice in Chains",
+    "Stone Temple Pilots",
+    "Faith No More",
+    "David Bowie",
+    "Jethro Tull"
 ];
 
+//! welcome button
+document.getElementById("welcomeButton").addEventListener("click", function (event) {
+    event.preventDefault();
+
+    var obj = document.createElement("audio");
+    obj.src = "./sounds/smw_door_opens.wav";
+    obj.play();
+
+    document.getElementById("welcomeButton").style.display = "none";
+    document.getElementById("cardBody").style.display = "block";
+
+
+
+})
 
 //! start button 
 document.getElementById("startQuizBtn").addEventListener("click", function (event) {
@@ -71,6 +87,10 @@ document.getElementById("startQuizBtn").addEventListener("click", function (even
     document.getElementById("welcomeCard").style.display = "none";
     document.getElementById("questionsCard").style.display = "block";
     timeLeft = 50;
+
+    var obj = document.createElement("audio");
+    obj.src = "./sounds/smw_feather_get.wav";
+    obj.play();
 
     renderStuff();
     startQuiz();
@@ -85,10 +105,17 @@ answer1Btn.addEventListener("click", function (event) {
         answerPoints = answerPoints + 2;
         answerStatus.textContent = "Correct!"
         answerStatus.style.color = "green";
+        var obj = document.createElement("audio");
+        obj.src = "./sounds/smw_power-up.wav";
+        obj.play();
     } else {
         answerStatus.textContent = "Wrong!"
         answerStatus.style.color = "red";
         timeLeft = timeLeft - 4;
+        var obj = document.createElement("audio");
+        obj.src = "./sounds/smw_pipe.wav";
+        obj.play();
+
     }
 
     qC++;
@@ -115,10 +142,16 @@ answer2Btn.addEventListener("click", function (event) {
         answerPoints = answerPoints + 2;
         answerStatus.textContent = "Correct!"
         answerStatus.style.color = "green";
+        var obj = document.createElement("audio");
+        obj.src = "./sounds/smw_power-up.wav";
+        obj.play();
     } else {
         answerStatus.textContent = "Wrong!"
         answerStatus.style.color = "red";
         timeLeft = timeLeft - 4;
+        var obj = document.createElement("audio");
+        obj.src = "./sounds/smw_pipe.wav";
+        obj.play();
     }
 
     qC++;
@@ -145,10 +178,16 @@ answer3Btn.addEventListener("click", function (event) {
         answerPoints = answerPoints + 2;
         answerStatus.textContent = "Correct!"
         answerStatus.style.color = "green";
+        var obj = document.createElement("audio");
+        obj.src = "./sounds/smw_power-up.wav";
+        obj.play();
     } else {
         answerStatus.textContent = "Wrong!"
         answerStatus.style.color = "red";
         timeLeft = timeLeft - 4;
+        var obj = document.createElement("audio");
+        obj.src = "./sounds/smw_pipe.wav";
+        obj.play();
     }
 
     qC++;
@@ -175,10 +214,16 @@ answer4Btn.addEventListener("click", function (event) {
         answerPoints = answerPoints + 2;
         answerStatus.textContent = "Correct!"
         answerStatus.style.color = "green";
+        var obj = document.createElement("audio");
+        obj.src = "./sounds/smw_power-up.wav";
+        obj.play();
     } else {
         answerStatus.textContent = "Wrong!"
         answerStatus.style.color = "red";
         timeLeft = timeLeft - 4;
+        var obj = document.createElement("audio");
+        obj.src = "./sounds/smw_pipe.wav";
+        obj.play();
     }
 
     qC++;
@@ -201,17 +246,17 @@ answer4Btn.addEventListener("click", function (event) {
 //! try again button
 document.getElementById("tryAgainBtn").addEventListener("click", function (event) {
     event.preventDefault();
-    document.getElementById("resultsCard").style.display = "none";
-    document.getElementById("welcomeCard").style.display = "block";
+    // document.getElementById("resultsCard").style.display = "none";
+    // document.getElementById("welcomeCard").style.display = "block";
     location.reload();
 })
 
 //! clear button
-document.getElementById("clear").addEventListener("click", function(event) {
+document.getElementById("clear").addEventListener("click", function (event) {
 
-    ranking = []; 
-    localStorage.removeItem("scores"); 
-    $("#table").empty(); 
+    ranking = [];
+    localStorage.removeItem("scores");
+    $("#table").empty();
 })
 
 //! save score button
@@ -219,23 +264,27 @@ document.getElementById("submitResultsBtn").addEventListener("click", function (
 
     event.preventDefault();
 
-    if(totalPoints > 0) {
+    if (totalPoints > 0) {
         ranking = JSON.parse(localStorage.getItem("scores"));
 
-    if(ranking === null) {
-        ranking = [];
-    }
+        if (ranking === null) {
+            ranking = [];
+        }
 
-    ranking.push({ "name": userName.value, "score": totalPoints });
-    ranking.sort(compare); 
+        ranking.push({ "name": userName.value, "score": totalPoints });
+        ranking.sort(compare);
 
 
-    // console.log(ranking);
+        // console.log(ranking);
 
-    if (localStorage.getItem("scores") !== null) {
-        localStorage.removeItem("scores");
-    }
-    localStorage.setItem("scores", JSON.stringify(ranking));
+        if (localStorage.getItem("scores") !== null) {
+            localStorage.removeItem("scores");
+        }
+        localStorage.setItem("scores", JSON.stringify(ranking));
+
+        var obj = document.createElement("audio");
+    obj.src = "./sounds/smw_save_menu.wav"; 
+    obj.play();
 
     } else {
         alert("You didn't make any points you looser")
@@ -245,7 +294,7 @@ document.getElementById("submitResultsBtn").addEventListener("click", function (
 
     // location.reload();
 
-    $("#table").empty();    
+    $("#table").empty();
     renderScore();
 })
 
@@ -253,9 +302,9 @@ document.getElementById("submitResultsBtn").addEventListener("click", function (
 function startQuiz() {
 
     var timerInterval = setInterval(function () {
-        timeLeft--; 
+        timeLeft--;
         document.getElementById("timer").style.display = "block";
-        timer.textContent = timeLeft; 
+        timer.textContent = timeLeft;
 
         if (timeLeft === 0) {
             clearInterval(timerInterval);
@@ -273,14 +322,14 @@ function renderStuff() {
 
 
     for (let i = 0; i < 1; i++) {
-        
+
         randomQnumber = Math.floor(Math.random() * 10);
 
-        if(randomQarray.includes(randomQnumber)){
+        if (randomQarray.includes(randomQnumber)) {
             i--;
         } else {
             randomQarray.push(randomQnumber);
-            qCtext = qC+1;
+            qCtext = qC + 1;
             questionText.textContent = qCtext + ". " + questions[randomQnumber];
         }
     }
@@ -292,7 +341,7 @@ function renderStuff() {
     for (let i = 0; i < 4; i++) {
         var randomN = Math.floor(Math.random() * 4);
 
-        if(randomArray.includes(randomN) && randomArray.length === 4) {
+        if (randomArray.includes(randomN) && randomArray.length === 4) {
             i++;
         } else if (randomArray.includes(randomN)) {
             i--;
@@ -301,17 +350,17 @@ function renderStuff() {
         }
     }
 
-    var aC = randomQnumber*4;
+    var aC = randomQnumber * 4;
 
     random1 = aC + randomArray[0];
     answer1Btn.textContent = answers[random1];
 
     random2 = aC + randomArray[1];
     answer2Btn.textContent = answers[random2];
-    
+
     random3 = aC + randomArray[2];
     answer3Btn.textContent = answers[random3];
-    
+
     random4 = aC + randomArray[3];
     answer4Btn.textContent = answers[random4];
 
@@ -321,16 +370,16 @@ function renderScore() {
 
     ranking = JSON.parse(localStorage.getItem("scores"));
 
-    $("#table").innerHTML = ""; 
+    $("#table").innerHTML = "";
 
     // var tbody = document.createElement("tbody");
     // tbody.setAttribute("id", "scoreboard");
     // table.appendChild(tbody); 
-    
-    
-    if(ranking !== null) {
 
-        for(var i = 0; i < ranking.length; i++) {
+
+    if (ranking !== null) {
+
+        for (var i = 0; i < ranking.length; i++) {
 
             var tableRow = document.createElement("tr");
 
@@ -349,17 +398,17 @@ function renderScore() {
             }
 
             var rankData = document.createElement("td");
-            rankData.textContent = i + 1;  
+            rankData.textContent = i + 1;
 
-            var nameData = document.createElement("td"); 
-            nameData.textContent = ranking[i].name; 
+            var nameData = document.createElement("td");
+            nameData.textContent = ranking[i].name;
 
-            var scoreData = document.createElement("td"); 
-            scoreData.textContent = ranking[i].score; 
+            var scoreData = document.createElement("td");
+            scoreData.textContent = ranking[i].score;
 
-            tableRow.appendChild(rankData); 
-            tableRow.appendChild(nameData); 
-            tableRow.appendChild(scoreData); 
+            tableRow.appendChild(rankData);
+            tableRow.appendChild(nameData);
+            tableRow.appendChild(scoreData);
 
             // console.log(tableRow);
             // console.log(tableScore);
@@ -373,12 +422,13 @@ function renderScore() {
 function compare(a, b) {
     var A = a.score;
     var B = b.score;
-  
+
     var c = 0;
     if (A > B) {
-      c = 1;
+        c = 1;
     } else if (A < B) {
-      c = -1;
+        c = -1;
     }
-    return c*-1;
+    return c * -1;
 }
+
